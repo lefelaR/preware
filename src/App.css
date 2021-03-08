@@ -1,3 +1,8 @@
+
+.hal{
+  background-color: #6a1b9a purple darken-3 !important;
+}
+
 .App {
   text-align: center;
 }
@@ -27,7 +32,9 @@
 .App-link {
   color: #61dafb;
 }
-
+.nav-wrapper{
+  margin-bottom: 5em;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +43,4 @@
     transform: rotate(360deg);
   }
 }
+
