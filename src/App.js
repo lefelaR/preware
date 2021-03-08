@@ -28,8 +28,8 @@ class App extends Component {
                 this.setState({
                     movies: [...data.results],
                     totalResulsts: data.total_results
-                },()=>console.log(data.results));
-            });
+                });
+            })
     }
 
     handleChange = (e) => {
@@ -51,15 +51,10 @@ class App extends Component {
     }
 
 
-    viewMovieInfo = (id)=>{
-      const filteredMovie = this.state.movie.filter(movie => movie.id == id)
-      const newCurrentMovie = filteredMovie.length > 0 ? filteredMovie[0] : null
-      this.setState({ CurrentMovie : filteredMovie});
-    }
-
-    closeMovieInfo =()=>{
-        this.setState({CurrentMovie:null});
-    }
+    // viewMovieInfo = ()=>{
+    //   const filteredMovie = this.state.movie.filter(movie => movie.id == id)
+    //   const newCurrentMovie = filteredMovie.length > 0 ? filteredMovie[0] : null
+    // }
 
 
     render() {
@@ -67,11 +62,8 @@ class App extends Component {
         return (
           <div className = "App" >
             <Nav / >
-                {this.setState.CurrentMovie == null  }
-                <div>
- <Search handleSubmit = { this.handleSubmit } handleChange = { this.handleChange } handleClick = { this.handleSubmit } />
-                      
-             <MovieList viewMovieInfo = { this.state.movies } /> </div> : <MovieInfo closeMovieInfo={this.closeMovieInfo} /> 
+            < Search handleSubmit = { this.handleSubmit } handleChange = { this.handleChange } handleClick = { this.handleSubmit } />
+             <MovieList movies = { this.state.movies } />
              <Pagination pages={numberPages} nextPage={this.nextPage} currentPage={this.state.currentPage} />
             {
                 this.state.totalResulsts > 10 ? < Pagination pages = { numberPages }
