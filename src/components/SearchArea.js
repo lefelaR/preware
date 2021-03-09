@@ -13,8 +13,6 @@ const Search = (props) => {
                   </div>
                 </form>
               </section>
-          
-             
             </div>
          </div>
     );
