@@ -15,7 +15,6 @@ const Pagination =(props)=>{
                  <ul className="pagination">
                      {props.currentPage > 1 ? <li className={`wave-effect `} onClick={()=> props.nextPage(props.currentPage-1)}> <a href="#" className="waves-effect waves-light btn">Prev</a></li> :'' }
                      {pageLinks}
-                     {props.currentPage +1 > 1 ? <li className={`wave-effect `} onClick={()=> props.nextPage(props.currentPage+1)}> <a href="#" className="waves-effect waves-light btn">Next</a></li> :'' }
                  </ul>
             </div>
         </div>

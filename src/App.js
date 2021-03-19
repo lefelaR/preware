@@ -52,10 +52,9 @@ class App extends Component {
 
 
     // viewMovieInfo = ()=>{
-    //   const filteredMovie = this.state.movie.filter(movie => movie.id == id)
-    //   const newCurrentMovie = filteredMovie.length > 0 ? filteredMovie[0] : null
+        //  const filteredMovie = this.state.movie.filter(movie => movie.id == id)
+        //   const newCurrentMovie = filteredMovie.length > 0 ? filteredMovie[0] : null
     // }
-
 
     render() {
         const numberPages = Math.floor(this.state.totalResulsts / 20);
