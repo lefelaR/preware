@@ -82,3 +82,6 @@ https://api.themoviedb.org/3/movie/550?api_key=278577cd4ce20e2744a90a8340e969b3
 ##
 API Read Access Token (v4 auth)
 nNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.l0z1oEgJCF8IpHRaTx6A-zpbGswNGVmX13FcTWaro94
+
+* remember always that if ytou call a components that is not properly done, it breaks the app,
+* so when there is a problem on the app file, check to see if the components are all in the right.

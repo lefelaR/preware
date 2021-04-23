@@ -45,7 +45,7 @@ class App extends Component {
                 )
             .then((data) => data.json())
             .then((data) => {
-                this.setState({ movies: [...data.results], currentPage: pageNumber });
+                this.setState({ movies: [data.results], currentPage: pageNumber });
             })
     }
 
@@ -62,8 +62,6 @@ class App extends Component {
               <MovieList movies = { this.state.movies } /> 
           
              </div>
-         
-         
             );
         }
     
