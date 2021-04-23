@@ -4,7 +4,7 @@ import ReactDom from "react-dom";
 import Nav from "./components/nav";
 import Search from "./components/SearchArea";
 import MovieList from './components/movie_list';
-import Pagination from './components/pagination';
+
 
 class App extends Component {
     constructor() {
@@ -15,9 +15,7 @@ class App extends Component {
             totalResulsts: 0,
             currentPage: 1
         };
-
         this.apikey = process.env.REACT_APP_API;
-
     }
 
     handleSubmit = (e) => {
@@ -43,7 +41,8 @@ class App extends Component {
 
     nextPage = (pageNumber) => {
         fetch(
-                `https://api.themoviedb.org/3/search/movie?api_key=${this.apikey}&query=${this.state.SearchTerm}&page=${pageNumber}`)
+                `https://api.themoviedb.org/3/search/movie?api_key=${this.apikey}&query=${this.state.SearchTerm}&page=${pageNumber}`
+                )
             .then((data) => data.json())
             .then((data) => {
                 this.setState({ movies: [...data.results], currentPage: pageNumber });
@@ -51,26 +50,24 @@ class App extends Component {
     }
 
 
-    // viewMovieInfo = ()=>{
-        //  const filteredMovie = this.state.movie.filter(movie => movie.id == id)
-        //   const newCurrentMovie = filteredMovie.length > 0 ? filteredMovie[0] : null
-    // }
 
     render() {
         const numberPages = Math.floor(this.state.totalResulsts / 20);
+
         return (
           <div className = "App" >
-            <Nav / >
+            <Nav />
+           
             < Search handleSubmit = { this.handleSubmit } handleChange = { this.handleChange } handleClick = { this.handleSubmit } />
-             <MovieList movies = { this.state.movies } />
-             <Pagination pages={numberPages} nextPage={this.nextPage} currentPage={this.state.currentPage} />
-            {
-                this.state.totalResulsts > 10 ? < Pagination pages = { numberPages }
-                nextPage = { this.nextPage }
-                 currentPage = { this.state.currentPage }/> : "" }
-                </div>
+              <MovieList movies = { this.state.movies } /> 
+          
+             </div>
+         
+         
             );
         }
-    }
+    
+};
 
+  
     export default App;
