@@ -5,7 +5,7 @@ render(){
   return (
     <nav className="hal">
       <div className="nav-wrapper container">
-      <a href="/" className="brand-logo">🎥 pReDaWn</a>
+      <a href="/" className="brand-logo">🎥 PD</a>
       </div>
     </nav>
   );
