@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import ReactDom from "react-dom";
 // import { Route } from 'react-router';
 import Nav from "./components/nav";
 import Search from "./components/SearchArea";
 import MovieList from './components/movie_list';
+import Trending from './components/trending_movies';
 
 
 class App extends Component {
@@ -35,15 +35,15 @@ class App extends Component {
         this.setState({ SearchTerm: e.target.value });
     };
 
-    handleClick = (e) =>{
-      this.setState({ SearchTerm: e.target.value });
+    handleClick = (e) => {
+        this.setState({ SearchTerm: e.target.value });
     };
 
 
     nextPage = (pageNumber) => {
         fetch(
-                `https://api.themoviedb.org/3/search/movie?api_key=${this.apikey}&query=${this.state.SearchTerm}&page=${pageNumber}`
-                )
+            `https://api.themoviedb.org/3/search/movie?api_key=${this.apikey}&query=${this.state.SearchTerm}&page=${pageNumber}`
+        )
             .then((data) => data.json())
             .then((data) => {
                 this.setState({ movies: [...data.results], currentPage: pageNumber });
@@ -53,15 +53,16 @@ class App extends Component {
     render() {
         const numberPages = Math.floor(this.state.totalResulsts / 20);
         return (
-          <div className = "App" >
-            <Nav />
-            < Search handleSubmit = { this.handleSubmit } handleChange = { this.handleChange } handleClick = { this.handleSubmit } />
-              <h1>
-              </h1>
-              <MovieList movies = { this.state.movies } /> 
-             </div>
-            );
-        }
+            <div className="App" >
+                <Nav />
+                < Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} handleClick={this.handleSubmit} />
+
+                <Trending trendingMovies={this.state.trendingMovies} />
+
+                <MovieList movies={this.state.movies} />
+            </div>
+        );
+    }
 };
 
-    export default App;
+export default App;
