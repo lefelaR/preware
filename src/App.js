@@ -20,9 +20,10 @@ class App extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${this.apikey}&query=${this.state.SearchTerm}`)
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=278577cd4ce20e2744a90a8340e969b3&query=${this.state.SearchTerm}`)
             .then((data) => data.json())
             .then((data) => {
+                debugger
                 this.setState({
                     movies: [...data.results],
                     totalResulsts: data.total_results
@@ -49,23 +50,18 @@ class App extends Component {
             })
     }
 
-
-
     render() {
         const numberPages = Math.floor(this.state.totalResulsts / 20);
-
         return (
           <div className = "App" >
             <Nav />
-           
             < Search handleSubmit = { this.handleSubmit } handleChange = { this.handleChange } handleClick = { this.handleSubmit } />
+              <h1>
+              </h1>
               <MovieList movies = { this.state.movies } /> 
-          
              </div>
             );
         }
-    
 };
 
-  
     export default App;
