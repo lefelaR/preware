@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+
+
 // import { Route } from 'react-router';
 import Nav from "./components/nav";
 import Search from "./components/SearchArea";
