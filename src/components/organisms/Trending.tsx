@@ -5,9 +5,15 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import MovieServices from '@/src/services/MovieServices'
 
+interface Movie {
+    id: number;
+    title: string;
+    overview: string;
+    poster_path: string;
+}
 
 const Trending = () => {
-    const [movies, setMovies] = React.useState([]);
+    const [movies, setMovies] = React.useState<Movie[]>([]);
    
     
     useEffect(() => {
