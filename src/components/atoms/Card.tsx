@@ -7,25 +7,25 @@ import Typography from '@mui/material/Typography';
 
 const ImgMediaCard = ({ title, description, image }: { title: string, description: string, image: string }) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 350 }}>
       <CardMedia
         component="img"
         alt="green iguana"
-        height="140"
+        height="300"
         image={image}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          <h2>{title}</h2>
+          {/* <h5>{title}</h5> */}
         </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        {/* <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           <p className="text-sm text-gray-500">{description}</p>
-        </Typography>
+        </Typography> */}
       </CardContent>
-      <CardActions>
+      {/* <CardActions>
         <Button onClick={() => {}}>Share</Button>
         <Button onClick={() => {}}>Learn More</Button>
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 }
