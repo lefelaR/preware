@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import SideNav from "@/src/components/organisms/SideNav";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,7 +28,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="flex min-h-screen bg-background font-sans">
+          <aside className="shrink-0 border-r border-border bg-surface w-52">
+            <SideNav />
+          </aside>
+          <div className="flex-1 min-h-screen">{children}</div>
+        </div>
       </body>
     </html>
   );
