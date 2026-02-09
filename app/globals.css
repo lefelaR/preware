@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+/* Custom Segoe variable font */
+@font-face {
+  font-family: segoe-vf;
+  font-weight: 100;
+  src: url(./segoeui-vf-display-light.CMq9E2qe.woff2) format("woff2"),
+    url(./segoeui-vf-display-light.v_wqJFmp.woff) format("woff"),
+    url(./segoeui-vf-display-light.DODk2CSF.ttf) format("truetype");
+  font-display: swap;
+}
+
 /* Movie player / cinema theme */
 :root {
   --background: #0c0c0c;
@@ -21,7 +31,7 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: segoe-vf, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
