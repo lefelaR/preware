@@ -1,15 +1,5 @@
 @import "tailwindcss";
 
-/* Custom Segoe variable font */
-@font-face {
-  font-family: segoe-vf;
-  font-weight: 100;
-  src: url(./segoeui-vf-display-light.CMq9E2qe.woff2) format("woff2"),
-    url(./segoeui-vf-display-light.v_wqJFmp.woff) format("woff"),
-    url(./segoeui-vf-display-light.DODk2CSF.ttf) format("truetype");
-  font-display: swap;
-}
-
 /* Movie player / cinema theme */
 :root {
   --background: #0c0c0c;
@@ -31,14 +21,14 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
-  --font-sans: segoe-vf, system-ui, sans-serif;
+  --font-sans: system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
 /* Subtle focus ring for accessibility */
