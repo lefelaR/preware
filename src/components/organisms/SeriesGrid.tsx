@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import MovieServices from "@/src/services/MovieServices";
+import SeriesService from "@/src/services/SeriesService";
 import Card from "./Card";
 
 export default function SeriesGrid() {
@@ -9,7 +9,7 @@ export default function SeriesGrid() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    MovieServices.getTrendingMovies("en-US")
+    SeriesService.getTrendingSeries("en-US")
       .then((data) => {
         const typed = data as { results?: any[] };
         // prefer tv items (media_type === 'tv') or items with first_air_date
