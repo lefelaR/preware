@@ -24,6 +24,7 @@ interface TrendingItem {
 export default function TrendingCarousel() {
   const [items, setItems] = useState<TrendingItem[]>([]);
   const [current, setCurrent] = useState(0);
+  const [flash, setFlash] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -50,6 +51,15 @@ export default function TrendingCarousel() {
     return () => clearInterval(id);
   }, [items.length]);
 
+  // trigger a short flash overlay when the current slide changes
+  useEffect(() => {
+    if (items.length === 0) return;
+    // flash briefly on slide change
+    setFlash(true);
+    const t = setTimeout(() => setFlash(false), 180);
+    return () => clearTimeout(t);
+  }, [current, items.length]);
+
   if (loading) {
     return (
       <section className="relative mt-[3px] h-[75vh] w-full bg-surface-elevated flex items-center justify-center">
@@ -68,6 +78,13 @@ export default function TrendingCarousel() {
 
   return (
     <section className="relative mt-[3px] h-[75vh] w-full overflow-hidden">
+      {/* flash overlay shown briefly when slide changes */}
+      <div
+        aria-hidden
+        className={`pointer-events-none absolute inset-0 z-30 bg-white transition-opacity duration-200 ${
+          flash ? 'opacity-20' : 'opacity-0'
+        }`}
+      />
       {/* Dark border-like gradient around the whole carousel */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-background/80 to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/95 via-background/80 to-transparent" />
