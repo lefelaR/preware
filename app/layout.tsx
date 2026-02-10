@@ -24,10 +24,10 @@ export default function RootLayout({
         className={`${geistMono.variable} antialiased`}
       >
         <div className="flex min-h-screen bg-background font-sans">
-          <aside className="shrink-0 border-r border-border bg-surface w-52">
+          <aside className="fixed left-0 top-0 h-screen w-52 border-r border-border bg-surface overflow-y-auto">
             <SideNav />
           </aside>
-          <div className="flex-1 min-h-screen">{children}</div>
+          <div className="flex-1 ml-52 min-h-screen overflow-y-auto">{children}</div>
         </div>
       </body>
     </html>
