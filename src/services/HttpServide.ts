@@ -4,7 +4,7 @@ import axios, { AxiosResponse } from 'axios';
 
 type HttpMethod = 'get' | 'post' | 'put' | 'patch' | 'delete';
 
-const BASE_URL = process.env.NEXT_PUBLIC_URL_ENDPOINT ?? '';
+const BASE_URL = 'https://api.themoviedb.org/3/';
 
 const HttpService = {
   baseUrl: BASE_URL,
@@ -19,6 +19,7 @@ const HttpService = {
     const headers = {
       ...(config.headers as Record<string, string> | undefined),
       Accept: 'application/json',
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzg1NzdjZDRjZTIwZTI3NDRhOTBhODM0MGU5NjliMyIsIm5iZiI6MTYxMTkzNzMzOC4wOTUsInN1YiI6IjYwMTQzNjNhMDgxNmM3MDA0MTg1ODMzOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OvsbqQOE2DBGhslRWuBWNiMXSXOw-E9BBKeIvMxbVeQ`,
     };
 
     return axios({
@@ -28,10 +29,12 @@ const HttpService = {
       ...config,
     })
       .then((response: AxiosResponse<T>) => {
+        debugger
         console.log('[HttpService] response.data', response.data);
         return response.data;
       })
       .catch((error) => {
+        debugger
         console.error('[HttpService] Error fetching data:', error);
         throw error;
       });
